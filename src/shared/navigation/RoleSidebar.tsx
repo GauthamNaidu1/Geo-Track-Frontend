@@ -97,7 +97,7 @@ export default function RoleSidebar({
         {item.badge && (
           <span
             className="w-2 h-2 rounded-full bg-red-500 flex-shrink-0"
-            style={{ boxShadow: '0 0 4px rgba(239,68,68,0.8)' }}
+            
           />
         )}
       </Link>
@@ -109,29 +109,16 @@ export default function RoleSidebar({
       className={`hidden lg:flex flex-col w-64 h-screen ${
         accentColor ? `border-l-4 ${accentColor}` : ''
       }`}
-      style={{
-        background: 'linear-gradient(160deg, #f1f5f9 0%, #e2e8f0 60%, #cbd5e1 100%)',
-        borderRight: '2px solid #94a3b8',
-        boxShadow: 'inset -2px 0 4px rgba(0,0,0,0.06), 4px 0 18px -4px rgba(0,0,0,0.2)',
-      }}
+      
     >
       {/* Logo / Title */}
       <div
         className="flex items-center gap-3 px-5 py-5"
-        style={{
-          background: 'linear-gradient(180deg, #f8fafc 0%, #e2e8f0 100%)',
-          borderBottom: '1px solid #94a3b8',
-          boxShadow: '0 2px 4px rgba(0,0,0,0.1), inset 0 1px 0 rgba(255,255,255,1)',
-        }}
+        
       >
         <div
           className="w-10 h-10 rounded-lg flex items-center justify-center text-white font-extrabold text-sm"
-          style={{
-            background: 'linear-gradient(180deg, #3b82f6 0%, #1d4ed8 100%)',
-            border: '1px solid #1e40af',
-            boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.4), 0 3px 6px rgba(0,0,0,0.3)',
-            textShadow: '0 -1px 1px rgba(0,0,0,0.5)',
-          }}
+          
         >
           GT
         </div>
@@ -179,21 +166,12 @@ export default function RoleSidebar({
       {/* User info & Logout */}
       <div
         className="px-4 py-4"
-        style={{
-          borderTop: '1px solid #94a3b8',
-          background: 'linear-gradient(180deg, #e2e8f0 0%, #cbd5e1 100%)',
-          boxShadow: 'inset 0 2px 4px rgba(0,0,0,0.08)',
-        }}
+        
       >
         <div className="flex items-center gap-3 mb-3">
           <div
             className="w-9 h-9 rounded-full flex items-center justify-center text-white font-extrabold text-sm flex-shrink-0"
-            style={{
-              background: 'linear-gradient(180deg, #6366f1 0%, #4338ca 100%)',
-              border: '1px solid #3730a3',
-              boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.4), 0 2px 4px rgba(0,0,0,0.3)',
-              textShadow: '0 -1px 1px rgba(0,0,0,0.5)',
-            }}
+            
           >
             {user?.name?.charAt(0)?.toUpperCase() || 'U'}
           </div>
@@ -213,12 +191,7 @@ export default function RoleSidebar({
           type="button"
           onClick={handleLogout}
           className="w-full flex items-center gap-2 px-3 py-2 text-sm font-bold text-red-700 rounded-lg transition-all duration-100"
-          style={{
-            background: 'linear-gradient(180deg, #fef2f2 0%, #fee2e2 100%)',
-            border: '1px solid #fca5a5',
-            boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.8), 0 2px 4px rgba(0,0,0,0.12)',
-            textShadow: '0 1px 0 rgba(255,255,255,0.8)',
-          }}
+          
           onMouseDown={(e) => {
             const el = e.currentTarget
             el.style.transform = 'translateY(1px)'

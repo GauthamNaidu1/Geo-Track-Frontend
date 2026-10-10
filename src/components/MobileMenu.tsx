@@ -70,9 +70,9 @@ export default function MobileMenu({ isOpen, onClose, navItems, children }: Mobi
       <div
         ref={panelRef}
         className="absolute left-0 top-0 h-full w-[min(100%,280px)] flex flex-col animate-slide-in-left"
-        style={{ background: 'linear-gradient(160deg, #f1f5f9 0%, #e2e8f0 60%, #cbd5e1 100%)', borderRight: '2px solid #94a3b8', boxShadow: 'inset -2px 0 4px rgba(0,0,0,0.06), 8px 0 24px rgba(0,0,0,0.35)' }}
+        
       >
-        <div className="flex items-center justify-between p-4" style={{ background: 'linear-gradient(180deg, #f8fafc 0%, #e2e8f0 100%)', borderBottom: '1px solid #94a3b8', boxShadow: '0 2px 4px rgba(0,0,0,0.1), inset 0 1px 0 rgba(255,255,255,1)' }}>
+        <div className="flex items-center justify-between p-4" >
           <div>
             <h2 className="text-lg font-bold text-primary">GeoTrack</h2>
             <p className="text-xs text-text-secondary dark:text-slate-400">GPS Attendance</p>
@@ -98,15 +98,7 @@ export default function MobileMenu({ isOpen, onClose, navItems, children }: Mobi
                 key={item.path}
                 to={item.path}
                 className={`flex items-center gap-3 min-h-[44px] px-4 py-2 rounded-lg transition-all duration-100 font-bold text-sm focus-ring`}
-                style={isActive ? {
-                  background: 'linear-gradient(180deg, #dbeafe 0%, #bfdbfe 100%)',
-                  border: '1px solid #93c5fd',
-                  boxShadow: 'inset 0 1px 3px rgba(0,0,0,0.15), 0 1px 0 rgba(255,255,255,0.8)',
-                  color: '#1e40af',
-                } : {
-                  border: '1px solid transparent',
-                  color: '#374151',
-                }}
+                
                 aria-current={isActive ? 'page' : undefined}
               >
                 <span className="text-lg" aria-hidden="true">{item.icon}</span>
@@ -120,7 +112,7 @@ export default function MobileMenu({ isOpen, onClose, navItems, children }: Mobi
 
         <div
           className="p-4"
-          style={{ borderTop: '1px solid #94a3b8', background: 'linear-gradient(180deg, #e2e8f0 0%, #cbd5e1 100%)', boxShadow: 'inset 0 2px 4px rgba(0,0,0,0.08)' }}
+          
         >
           <p className="text-sm font-extrabold text-slate-800 truncate" style={{ textShadow: '0 1px 0 rgba(255,255,255,0.9)' }}>{user?.name}</p>
           <p className="text-xs font-semibold text-slate-500 capitalize mb-3">
@@ -130,7 +122,7 @@ export default function MobileMenu({ isOpen, onClose, navItems, children }: Mobi
             type="button"
             onClick={handleLogout}
             className="w-full min-h-[44px] px-4 py-2 text-sm font-bold text-left rounded-lg transition-all duration-100 focus-ring text-red-700"
-            style={{ background: 'linear-gradient(180deg, #fef2f2 0%, #fee2e2 100%)', border: '1px solid #fca5a5', boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.8), 0 2px 4px rgba(0,0,0,0.12)', textShadow: '0 1px 0 rgba(255,255,255,0.8)' }}
+            
           >
             Logout
           </button>

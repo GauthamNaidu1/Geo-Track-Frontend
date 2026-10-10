@@ -49,7 +49,7 @@ export default function EmployeeLayout() {
   const location = useLocation()
 
   return (
-    <div className="flex h-screen" style={{ background: 'radial-gradient(ellipse at 50% 0%, #e2e8f0 0%, #cbd5e1 100%)' }}>
+    <div className="flex h-screen bg-background dark:bg-slate-900">
       <a href="#main-content" className="skip-link">
         Skip to main content
       </a>
@@ -86,7 +86,7 @@ export default function EmployeeLayout() {
       {/* Mobile bottom navigation bar */}
       <nav
         className="fixed bottom-0 left-0 right-0 lg:hidden z-40"
-        style={{ background: 'linear-gradient(180deg, #e2e8f0 0%, #cbd5e1 100%)', borderTop: '2px solid #94a3b8', boxShadow: '0 -4px 12px -2px rgba(0,0,0,0.2), inset 0 -1px 0 rgba(255,255,255,0.6)' }}
+        
         aria-label="Bottom navigation"
       >
         <div className="flex items-center justify-around h-16 px-2">

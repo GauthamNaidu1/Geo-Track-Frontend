@@ -12,7 +12,7 @@ export default function ManagerLayout() {
   const closeMobileMenu = useCallback(() => setMobileMenuOpen(false), [])
 
   return (
-    <div className="flex h-screen" style={{ background: 'radial-gradient(ellipse at 50% 0%, #e2e8f0 0%, #cbd5e1 100%)' }}>
+    <div className="flex h-screen bg-background dark:bg-slate-900">
       <a href="#main-content" className="skip-link">
         Skip to main content
       </a>
