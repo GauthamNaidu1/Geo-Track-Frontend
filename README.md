@@ -5,7 +5,7 @@
 [![Vite](https://img.shields.io/badge/Vite-5.0-646CFF.svg?logo=vite)](https://vitejs.dev/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.3-38B2AC.svg?logo=tailwind-css)](https://tailwindcss.com/)
 [![Redux Toolkit](https://img.shields.io/badge/Redux_Toolkit-1.9.7-764ABC.svg?logo=redux)](https://redux-toolkit.js.org/)
-[![Deploy](https://img.shields.io/badge/Deploy-Vercel-000000.svg?logo=vercel)](https://geotrack-gyf63k45i-cgautham1104-8961s-projects.vercel.app)
+[![Deploy](https://img.shields.io/badge/Deploy-Vercel-000000.svg?logo=vercel)](https://geotrack-theta.vercel.app)
 
 Modern, high-performance Single-Page Application (SPA) & Progressive Web App (PWA) for **GeoTrack** — an enterprise GPS attendance tracking, workforce analytics, and HR management system.
 
@@ -13,7 +13,7 @@ Modern, high-performance Single-Page Application (SPA) & Progressive Web App (PW
 
 ## 🚀 Live Deployment
 
-- **Production App URL:** [GeoTrack on Vercel](https://geotrack-gyf63k45i-cgautham1104-8961s-projects.vercel.app)
+- **Production App URL:** [GeoTrack on Vercel](https://geotrack-theta.vercel.app)
 - **Connected Backend:** `https://geo-track-backend.onrender.com`
 
 ---
