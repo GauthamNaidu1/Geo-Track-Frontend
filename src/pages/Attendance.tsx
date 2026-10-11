@@ -158,11 +158,18 @@ export default function Attendance() {
                   onChange={(e) => setSelectedOffice(e.target.value)}
                   className="input"
                 >
-                  {offices.map((office) => (
-                    <option key={office.id} value={office.id}>
-                      {office.name}
-                    </option>
-                  ))}
+                  {offices.length === 0 ? (
+                    <option value="">No offices configured</option>
+                  ) : (
+                    <>
+                      <option value="">Select an office</option>
+                      {offices.map((office) => (
+                        <option key={office.id} value={office.id}>
+                          {office.name}
+                        </option>
+                      ))}
+                    </>
+                  )}
                 </select>
               </div>
             )}

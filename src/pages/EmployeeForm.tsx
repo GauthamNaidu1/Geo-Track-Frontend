@@ -227,9 +227,9 @@ export default function EmployeeForm() {
                 name="departmentId"
                 value={formData.departmentId}
                 onChange={handleChange}
-                className="w-full px-4 py-2 border border-slate-300 dark:border-slate-600 rounded-lg bg-white dark:bg-slate-700 text-text-primary dark:text-white focus:outline-none focus:ring-2 focus:ring-primary"
+                className="w-full px-4 py-2 border border-slate-300 dark:border-slate-600 rounded-lg bg-white dark:bg-slate-700 text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary"
               >
-                <option value="">Select Department</option>
+                <option value="">{departments.length === 0 ? 'No departments created yet' : 'Select Department'}</option>
                 {departments.map((dept) => (
                   <option key={dept.id} value={dept.id}>
                     {dept.name}
@@ -246,9 +246,9 @@ export default function EmployeeForm() {
                 name="shiftId"
                 value={formData.shiftId}
                 onChange={handleChange}
-                className="w-full px-4 py-2 border border-slate-300 dark:border-slate-600 rounded-lg bg-white dark:bg-slate-700 text-text-primary dark:text-white focus:outline-none focus:ring-2 focus:ring-primary"
+                className="w-full px-4 py-2 border border-slate-300 dark:border-slate-600 rounded-lg bg-white dark:bg-slate-700 text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary"
               >
-                <option value="">Select Shift</option>
+                <option value="">{shifts.length === 0 ? 'No shifts created yet' : 'Select Shift'}</option>
                 {shifts.map((shift) => (
                   <option key={shift.id} value={shift.id}>
                     {shift.name} ({shift.startTime} - {shift.endTime})
@@ -267,9 +267,9 @@ export default function EmployeeForm() {
                 name="managerId"
                 value={formData.managerId}
                 onChange={handleChange}
-                className="w-full px-4 py-2 border border-slate-300 dark:border-slate-600 rounded-lg bg-white dark:bg-slate-700 text-text-primary dark:text-white focus:outline-none focus:ring-2 focus:ring-primary"
+                className="w-full px-4 py-2 border border-slate-300 dark:border-slate-600 rounded-lg bg-white dark:bg-slate-700 text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary"
               >
-                <option value="">Select Manager</option>
+                <option value="">{managers.length === 0 ? 'No managers available (Optional)' : 'Select Manager (Optional)'}</option>
                 {managers.map((manager) => (
                   <option key={manager.id} value={manager.id}>
                     {manager.name}
@@ -286,7 +286,7 @@ export default function EmployeeForm() {
                 name="role"
                 value={formData.role}
                 onChange={handleChange}
-                className="w-full px-4 py-2 border border-slate-300 dark:border-slate-600 rounded-lg bg-white dark:bg-slate-700 text-text-primary dark:text-white focus:outline-none focus:ring-2 focus:ring-primary"
+                className="w-full px-4 py-2 border border-slate-300 dark:border-slate-600 rounded-lg bg-white dark:bg-slate-700 text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary"
               >
                 <option value="employee">Employee</option>
                 <option value="manager">Manager</option>
@@ -305,9 +305,9 @@ export default function EmployeeForm() {
                 name="officeId"
                 value={formData.officeId}
                 onChange={handleChange}
-                className="w-full px-4 py-2 border border-slate-300 dark:border-slate-600 rounded-lg bg-white dark:bg-slate-700 text-text-primary dark:text-white focus:outline-none focus:ring-2 focus:ring-primary"
+                className="w-full px-4 py-2 border border-slate-300 dark:border-slate-600 rounded-lg bg-white dark:bg-slate-700 text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary"
               >
-                <option value="">Select Office</option>
+                <option value="">{offices.length === 0 ? 'No offices created yet' : 'Select Office'}</option>
                 {offices.map((office) => (
                   <option key={office.id} value={office.id}>
                     {office.name}
