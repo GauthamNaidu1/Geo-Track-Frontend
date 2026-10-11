@@ -117,19 +117,15 @@ export default function RoleSidebar({
         
       >
         <div
-          className="w-10 h-10 rounded-lg flex items-center justify-center text-white font-extrabold text-sm"
-          
+          className="w-10 h-10 rounded-lg flex items-center justify-center text-white font-extrabold text-sm bg-gradient-to-tr from-blue-600 to-indigo-600 shadow-sm"
         >
           GT
         </div>
         <div>
-          <h1
-            className="text-base font-extrabold text-slate-800"
-            style={{ textShadow: '0 1px 0 rgba(255,255,255,0.9)' }}
-          >
+          <h1 className="text-base font-extrabold text-slate-800 dark:text-white">
             {title}
           </h1>
-          <p className="text-xs text-slate-500 font-semibold">{subtitle}</p>
+          <p className="text-xs text-slate-500 dark:text-slate-400 font-semibold">{subtitle}</p>
         </div>
       </div>
 
@@ -141,13 +137,7 @@ export default function RoleSidebar({
         {hasSections
           ? Object.entries(groupedItems).map(([section, items]) => (
               <div key={section} className="mb-4">
-                <p
-                  className="px-3 mb-2 text-xs font-extrabold uppercase tracking-widest"
-                  style={{
-                    color: '#64748b',
-                    textShadow: '0 1px 0 rgba(255,255,255,0.9)',
-                  }}
-                >
+                <p className="px-3 mb-2 text-xs font-extrabold uppercase tracking-widest text-slate-500 dark:text-slate-400">
                   {section}
                 </p>
                 <div className="space-y-0.5">
@@ -170,19 +160,15 @@ export default function RoleSidebar({
       >
         <div className="flex items-center gap-3 mb-3">
           <div
-            className="w-9 h-9 rounded-full flex items-center justify-center text-white font-extrabold text-sm flex-shrink-0"
-            
+            className="w-9 h-9 rounded-full flex items-center justify-center text-white font-extrabold text-sm flex-shrink-0 bg-gradient-to-tr from-blue-600 to-indigo-600 shadow-sm"
           >
             {user?.name?.charAt(0)?.toUpperCase() || 'U'}
           </div>
           <div className="min-w-0">
-            <p
-              className="text-sm font-extrabold text-slate-800 truncate"
-              style={{ textShadow: '0 1px 0 rgba(255,255,255,0.9)' }}
-            >
+            <p className="text-sm font-extrabold text-slate-800 dark:text-white truncate">
               {user?.name}
             </p>
-            <p className="text-xs text-slate-500 font-semibold">
+            <p className="text-xs text-slate-500 dark:text-slate-400 font-semibold">
               {user?.role ? ROLE_LABELS[user.role as UserRole] : 'Employee'}
             </p>
           </div>

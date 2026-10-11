@@ -190,7 +190,7 @@ export default function Employees() {
                   <th scope="col">Office</th>
                   <th scope="col">Manager</th>
                   {canManageEmployees && (
-                    <th scope="col" className="px-6 py-3 text-right text-xs uppercase tracking-widest font-black text-slate-600" style={{ textShadow: '0 1px 0 rgba(255,255,255,0.9)' }}>Actions</th>
+                    <th scope="col" className="px-6 py-3 text-right text-xs uppercase tracking-widest font-black text-slate-600 dark:text-slate-300">Actions</th>
                   )}
                 </tr>
               </thead>
@@ -198,9 +198,9 @@ export default function Employees() {
                 {employees.map((employee) => (
                   <tr key={employee.id} className="skeuo-row">
                     <td className="skeuo-td">
-                      <div className="font-black text-slate-800">{employee.name}</div>
-                      <div className="text-sm font-semibold text-slate-500">{employee.email}</div>
-                      <div className="text-xs font-bold text-slate-400">{employee.employeeCode}</div>
+                      <div className="font-black text-slate-800 dark:text-white">{employee.name}</div>
+                      <div className="text-sm font-semibold text-slate-500 dark:text-slate-400">{employee.email}</div>
+                      <div className="text-xs font-bold text-slate-400 dark:text-slate-500">{employee.employeeCode}</div>
                     </td>
                     <td className="skeuo-td">
                       <span className="badge-blue capitalize">

@@ -58,18 +58,16 @@ export default function RoleTopbar({ title, onMenuOpen }: RoleTopbarProps) {
       {/* Right: user info + dark mode + notifications */}
       <div className="flex items-center gap-2">
         <span
-          className="hidden sm:inline text-sm font-bold text-slate-600 truncate max-w-[120px]"
-          style={{ textShadow: '0 1px 0 rgba(255,255,255,0.9)' }}
+          className="hidden sm:inline text-sm font-semibold text-slate-700 dark:text-slate-200 truncate max-w-[150px]"
         >
           {user?.name || 'User'}
         </span>
         <DarkModeToggle />
         <NotificationBell />
         <div
-          className="min-w-[40px] min-h-[40px] w-10 h-10 rounded-full flex items-center justify-center text-white font-extrabold text-sm flex-shrink-0"
+          className="min-w-[40px] min-h-[40px] w-10 h-10 rounded-full flex items-center justify-center text-white font-extrabold text-sm flex-shrink-0 bg-gradient-to-tr from-blue-600 to-indigo-600 shadow-sm"
           role="img"
           aria-label={`Profile: ${user?.name || 'User'}`}
-          
         >
           {user?.name?.charAt(0)?.toUpperCase() || 'U'}
         </div>

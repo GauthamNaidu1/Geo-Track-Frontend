@@ -31,7 +31,6 @@ interface Pagination {
 export default function WorkLogs() {
   const user = useSelector((state: RootState) => state.auth.user)
   const toast = useToast()
-  const isManagerView = ['manager', 'org_admin', 'super_admin'].includes(user?.role || '')
 
   const [activeTab, setActiveTab] = useState<'submit' | 'my' | 'team'>('submit')
   const [workSummary, setWorkSummary] = useState('')
@@ -56,14 +55,14 @@ export default function WorkLogs() {
   useEffect(() => {
     if (activeTab === 'my') {
       fetchMyLogs()
-    } else if (activeTab === 'team' && isManagerView) {
+    } else if (activeTab === 'team') {
       fetchTeamLogs()
     }
   }, [activeTab, pagination.page])
 
   useEffect(() => {
     const unsubNewLog = on('worklog:new' as any, (_data: any) => {
-      if (activeTab === 'team' && isManagerView && pagination.page === 1) {
+      if (activeTab === 'team' && pagination.page === 1) {
         fetchTeamLogs()
       }
     })
@@ -71,7 +70,7 @@ export default function WorkLogs() {
     return () => {
       unsubNewLog()
     }
-  }, [on, activeTab, isManagerView, pagination.page])
+  }, [on, activeTab, pagination.page])
 
   const fetchMyLogs = async () => {
     try {
@@ -150,11 +149,20 @@ export default function WorkLogs() {
       className="bg-white dark:bg-slate-800 rounded-lg border border-slate-200 dark:border-slate-700 p-4"
     >
       {showEmployee && log.employee && (
-        <div className="mb-2 pb-2 border-b border-slate-100 dark:border-slate-700">
-          <p className="font-medium text-text-primary dark:text-white">{log.employee.name}</p>
-          <p className="text-xs text-text-secondary dark:text-slate-400">
-            {log.employee.employeeCode} · {log.employee.email}
-          </p>
+        <div className="mb-2 pb-2 border-b border-slate-100 dark:border-slate-700 flex justify-between items-center">
+          <div>
+            <p className="font-medium text-text-primary dark:text-white">
+              {log.employee.name} {user?.email === log.employee.email ? '(You)' : ''}
+            </p>
+            <p className="text-xs text-text-secondary dark:text-slate-400">
+              {log.employee.employeeCode} · {log.employee.email}
+            </p>
+          </div>
+          {user?.email === log.employee.email && (
+            <span className="badge bg-blue-100 text-blue-800 dark:bg-blue-900/40 dark:text-blue-200 text-xs">
+              Your Log
+            </span>
+          )}
         </div>
       )}
       <p className="text-sm text-text-primary dark:text-white whitespace-pre-wrap">{log.workSummary}</p>
@@ -203,22 +211,20 @@ export default function WorkLogs() {
         >
           My History
         </button>
-        {isManagerView && (
-          <button
-            type="button"
-            onClick={() => {
-              setActiveTab('team')
-              setPagination((p) => ({ ...p, page: 1 }))
-            }}
-            className={`px-4 py-2 text-sm font-medium border-b-2 transition-colors ${
-              activeTab === 'team'
-                ? 'border-primary text-primary'
-                : 'border-transparent text-text-secondary dark:text-slate-400 hover:text-text-primary'
-            }`}
-          >
-            Team Logs
-          </button>
-        )}
+        <button
+          type="button"
+          onClick={() => {
+            setActiveTab('team')
+            setPagination((p) => ({ ...p, page: 1 }))
+          }}
+          className={`px-4 py-2 text-sm font-medium border-b-2 transition-colors ${
+            activeTab === 'team'
+              ? 'border-primary text-primary'
+              : 'border-transparent text-text-secondary dark:text-slate-400 hover:text-text-primary dark:hover:text-white'
+          }`}
+        >
+          Team Logs
+        </button>
       </div>
 
       {activeTab === 'submit' && (

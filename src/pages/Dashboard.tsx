@@ -164,8 +164,8 @@ export default function Dashboard() {
                   key={stat.label}
                   className={`${stat.className} rounded-xl p-5 sm:p-6 transition-transform hover:-translate-y-1 duration-200`}
                 >
-                  <p className="text-xs font-black uppercase tracking-widest text-slate-500 mb-2">{stat.label}</p>
-                  <p className="text-4xl font-black text-slate-800" style={{ textShadow: '0 2px 0 rgba(255,255,255,0.9)' }}>{stat.value}</p>
+                  <p className="text-xs font-black uppercase tracking-widest text-slate-500 dark:text-slate-400 mb-2">{stat.label}</p>
+                  <p className="text-4xl font-black text-slate-800 dark:text-white">{stat.value}</p>
                 </article>
               ))}
             </div>

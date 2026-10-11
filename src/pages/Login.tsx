@@ -92,13 +92,10 @@ export default function Login() {
               GT
             </div>
             <div>
-              <h1
-                className="text-2xl font-extrabold text-slate-900"
-                style={{ textShadow: '0 1px 1px rgba(255,255,255,0.9)' }}
-              >
+              <h1 className="text-2xl font-extrabold text-slate-900 dark:text-white">
                 GeoTrack
               </h1>
-              <p className="text-sm font-semibold text-slate-500">GPS Attendance System</p>
+              <p className="text-sm font-semibold text-slate-500 dark:text-slate-400">GPS Attendance System</p>
             </div>
           </div>
         </div>
@@ -115,8 +112,7 @@ export default function Login() {
             <div>
               <label
                 htmlFor="email"
-                className="block text-sm mb-2"
-                style={{ textShadow: '0 1px 0 rgba(255,255,255,0.9)' }}
+                className="block text-sm mb-2 font-medium text-slate-700 dark:text-slate-300"
               >
                 Email Address
               </label>
@@ -136,8 +132,7 @@ export default function Login() {
             <div>
               <label
                 htmlFor="password"
-                className="block text-sm mb-2"
-                style={{ textShadow: '0 1px 0 rgba(255,255,255,0.9)' }}
+                className="block text-sm mb-2 font-medium text-slate-700 dark:text-slate-300"
               >
                 Password
               </label>

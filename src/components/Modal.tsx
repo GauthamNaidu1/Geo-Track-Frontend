@@ -30,19 +30,17 @@ export default function Modal({ isOpen, onClose, title, children }: ModalProps) 
           }}
         >
           <h3
-            className="text-base font-black text-slate-800 uppercase tracking-wide"
-            style={{ textShadow: '0 1px 0 rgba(255,255,255,0.9)', letterSpacing: '0.04em' }}
+            className="text-base font-black text-slate-800 dark:text-white uppercase tracking-wide"
           >
             {title}
           </h3>
           <button
             onClick={onClose}
-            className="w-8 h-8 flex items-center justify-center rounded-lg text-slate-600 font-black text-xl transition-all duration-100"
+            className="w-8 h-8 flex items-center justify-center rounded-lg text-slate-600 dark:text-slate-200 font-black text-xl transition-all duration-100"
             style={{
               background: 'linear-gradient(180deg, #f1f5f9 0%, #e2e8f0 100%)',
               border: '1px solid #94a3b8',
               boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.9), 0 2px 3px rgba(0,0,0,0.15)',
-              textShadow: '0 1px 0 rgba(255,255,255,0.9)',
             }}
             onMouseDown={(e) => {
               const el = e.currentTarget

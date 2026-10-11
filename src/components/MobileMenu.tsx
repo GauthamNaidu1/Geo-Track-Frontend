@@ -114,8 +114,8 @@ export default function MobileMenu({ isOpen, onClose, navItems, children }: Mobi
           className="p-4"
           
         >
-          <p className="text-sm font-extrabold text-slate-800 truncate" style={{ textShadow: '0 1px 0 rgba(255,255,255,0.9)' }}>{user?.name}</p>
-          <p className="text-xs font-semibold text-slate-500 capitalize mb-3">
+          <p className="text-sm font-extrabold text-slate-800 dark:text-white truncate">{user?.name}</p>
+          <p className="text-xs font-semibold text-slate-500 dark:text-slate-400 capitalize mb-3">
             {user?.role?.replace('_', ' ') || 'Employee'}
           </p>
           <button
