@@ -41,7 +41,7 @@ export default function Employees() {
     totalPages: 0,
   })
 
-  const canManageEmployees = ['super_admin', 'org_admin'].includes(user?.role || '')
+  const canManageEmployees = ['super_admin', 'org_admin', 'manager'].includes(user?.role || '')
 
   useEffect(() => {
     fetchEmployees()

@@ -68,7 +68,9 @@ export default function EmployeeForm() {
       setDepartments(deptRes.data.departments || [])
       setShifts(shiftRes.data.shifts || [])
       setOffices(officeRes.data.offices || [])
-      setManagers(managerRes.data.employees || [])
+      const allEmps: any[] = managerRes.data.employees || []
+      const mgrList = allEmps.filter((e: any) => e.role === 'manager' || e.role === 'org_admin')
+      setManagers(mgrList.length > 0 ? mgrList : allEmps)
     } catch (err) {
       console.error('Failed to load form data:', err)
     }
@@ -100,9 +102,10 @@ export default function EmployeeForm() {
     setError('')
 
     try {
-      const parts = formData.name.split(' ')
+      const parts = formData.name.trim().split(' ')
       const payload = {
         ...formData,
+        role: formData.role.toUpperCase(),
         firstName: parts[0] || '',
         lastName: parts.slice(1).join(' ') || parts[0] || '',
         departmentId: formData.departmentId || null,
@@ -113,6 +116,7 @@ export default function EmployeeForm() {
 
       if (isEdit) {
         await api.put(`/employees/${id}`, payload)
+        alert('Employee updated successfully!')
         navigate('/employees')
       } else {
         await api.post('/employees', payload)

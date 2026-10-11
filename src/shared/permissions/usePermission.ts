@@ -13,7 +13,7 @@ export function usePermission() {
   const isAdmin = role === 'org_admin'
 
   // Capability booleans
-  const canManageEmployees = canAccess(role, 'org_admin')
+  const canManageEmployees = canAccess(role, 'manager')
   const canApproveLeaves = canAccess(role, 'manager')
   const canManageOffices = canAccess(role, 'org_admin')
   const canViewLiveDashboard = canAccess(role, 'org_admin')
