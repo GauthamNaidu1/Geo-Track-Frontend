@@ -146,33 +146,33 @@ export default function WorkLogs() {
   const renderLogCard = (log: WorkLog, showEmployee = false) => (
     <div
       key={log.id}
-      className="bg-white dark:bg-slate-800 rounded-lg border border-slate-200 dark:border-slate-700 p-4"
+      className="bg-white dark:bg-[#0c121e] rounded-xl border border-slate-200/90 dark:border-slate-800 p-5 shadow-sm transition-all"
     >
       {showEmployee && log.employee && (
-        <div className="mb-2 pb-2 border-b border-slate-100 dark:border-slate-700 flex justify-between items-center">
+        <div className="mb-3 pb-3 border-b border-slate-100 dark:border-slate-800/80 flex justify-between items-center">
           <div>
-            <p className="font-medium text-text-primary dark:text-white">
+            <p className="font-bold text-slate-900 dark:text-white">
               {log.employee.name} {user?.email === log.employee.email ? '(You)' : ''}
             </p>
-            <p className="text-xs text-text-secondary dark:text-slate-400">
+            <p className="text-xs text-slate-500 dark:text-slate-400 font-medium">
               {log.employee.employeeCode} · {log.employee.email}
             </p>
           </div>
           {user?.email === log.employee.email && (
-            <span className="badge bg-blue-100 text-blue-800 dark:bg-blue-900/40 dark:text-blue-200 text-xs">
+            <span className="badge bg-blue-50 text-blue-700 border-blue-200 dark:bg-blue-900/40 dark:text-blue-300 dark:border-blue-800 text-xs font-bold">
               Your Log
             </span>
           )}
         </div>
       )}
-      <p className="text-sm text-text-primary dark:text-white whitespace-pre-wrap">{log.workSummary}</p>
+      <p className="text-sm font-medium text-slate-800 dark:text-slate-200 whitespace-pre-wrap leading-relaxed">{log.workSummary}</p>
       {log.blockers && (
-        <div className="mt-3 p-2 bg-amber-50 dark:bg-amber-900/20 rounded">
-          <p className="text-xs font-medium text-amber-800 dark:text-amber-200">Blockers</p>
-          <p className="text-sm text-amber-700 dark:text-amber-300 mt-0.5">{log.blockers}</p>
+        <div className="mt-3 p-3 bg-amber-50/80 dark:bg-amber-950/30 border border-amber-200/80 dark:border-amber-800/40 rounded-lg">
+          <p className="text-xs font-bold text-amber-900 dark:text-amber-200 uppercase tracking-wider">Blockers</p>
+          <p className="text-sm font-medium text-amber-800 dark:text-amber-300 mt-0.5">{log.blockers}</p>
         </div>
       )}
-      <p className="text-xs text-text-secondary dark:text-slate-500 mt-3">{formatDate(log.createdAt)}</p>
+      <p className="text-xs text-slate-400 dark:text-slate-500 mt-3 font-semibold">{formatDate(log.createdAt)}</p>
     </div>
   )
 
@@ -185,14 +185,14 @@ export default function WorkLogs() {
         description="Submit daily work summaries and track productivity"
       />
 
-      <div className="flex gap-2 mb-6 border-b border-slate-200 dark:border-slate-700">
+      <div className="flex gap-2 mb-6 border-b border-slate-200 dark:border-slate-800">
         <button
           type="button"
           onClick={() => setActiveTab('submit')}
-          className={`px-4 py-2 text-sm font-medium border-b-2 transition-colors ${
+          className={`px-4 py-2.5 text-sm font-bold border-b-2 transition-all ${
             activeTab === 'submit'
-              ? 'border-primary text-primary'
-              : 'border-transparent text-text-secondary dark:text-slate-400 hover:text-text-primary'
+              ? 'border-blue-600 text-blue-600 dark:border-blue-400 dark:text-blue-400'
+              : 'border-transparent text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white'
           }`}
         >
           Submit Log
@@ -203,10 +203,10 @@ export default function WorkLogs() {
             setActiveTab('my')
             setPagination((p) => ({ ...p, page: 1 }))
           }}
-          className={`px-4 py-2 text-sm font-medium border-b-2 transition-colors ${
+          className={`px-4 py-2.5 text-sm font-bold border-b-2 transition-all ${
             activeTab === 'my'
-              ? 'border-primary text-primary'
-              : 'border-transparent text-text-secondary dark:text-slate-400 hover:text-text-primary'
+              ? 'border-blue-600 text-blue-600 dark:border-blue-400 dark:text-blue-400'
+              : 'border-transparent text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white'
           }`}
         >
           My History
@@ -217,10 +217,10 @@ export default function WorkLogs() {
             setActiveTab('team')
             setPagination((p) => ({ ...p, page: 1 }))
           }}
-          className={`px-4 py-2 text-sm font-medium border-b-2 transition-colors ${
+          className={`px-4 py-2.5 text-sm font-bold border-b-2 transition-all ${
             activeTab === 'team'
-              ? 'border-primary text-primary'
-              : 'border-transparent text-text-secondary dark:text-slate-400 hover:text-text-primary dark:hover:text-white'
+              ? 'border-blue-600 text-blue-600 dark:border-blue-400 dark:text-blue-400'
+              : 'border-transparent text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white'
           }`}
         >
           Team Logs
@@ -229,20 +229,20 @@ export default function WorkLogs() {
 
       {activeTab === 'submit' && (
         <div className="max-w-2xl">
-          <form onSubmit={handleSubmit} className="bg-white dark:bg-slate-800 rounded-lg border border-slate-200 dark:border-slate-700 p-6 space-y-4">
+          <form onSubmit={handleSubmit} className="bg-white dark:bg-[#0c121e] rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm p-6 space-y-5">
             {submitError && (
-              <div className="p-3 bg-red-50 dark:bg-red-900/20 text-red-700 dark:text-red-300 rounded-lg text-sm">
+              <div className="p-3 bg-red-50 dark:bg-red-950/40 border border-red-200 dark:border-red-900/60 text-red-700 dark:text-red-300 rounded-lg text-sm font-medium">
                 {submitError}
               </div>
             )}
             {submitSuccess && (
-              <div className="p-3 bg-green-50 dark:bg-green-900/20 text-green-700 dark:text-green-300 rounded-lg text-sm">
+              <div className="p-3 bg-green-50 dark:bg-green-950/40 border border-green-200 dark:border-green-900/60 text-green-700 dark:text-green-300 rounded-lg text-sm font-medium">
                 {submitSuccess}
               </div>
             )}
 
             <div>
-              <label className="block text-sm font-medium text-text-primary dark:text-white mb-1">
+              <label className="block text-sm font-bold text-slate-900 dark:text-white mb-2">
                 Work Summary <span className="text-red-500">*</span>
               </label>
               <textarea
@@ -250,12 +250,12 @@ export default function WorkLogs() {
                 onChange={(e) => setWorkSummary(e.target.value)}
                 rows={5}
                 placeholder="What did you accomplish today?"
-                className="w-full px-3 py-2 border border-slate-300 dark:border-slate-600 rounded-lg bg-white dark:bg-slate-900 text-text-primary dark:text-white focus:ring-2 focus:ring-primary focus:border-transparent"
+                className="w-full px-4 py-3 border border-slate-300 dark:border-slate-700 rounded-xl bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-500 focus:bg-white dark:focus:bg-slate-900 focus:ring-2 focus:ring-blue-500 focus:outline-none transition-all"
               />
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-text-primary dark:text-white mb-1">
+              <label className="block text-sm font-bold text-slate-900 dark:text-white mb-2">
                 Blockers (optional)
               </label>
               <textarea
@@ -263,14 +263,14 @@ export default function WorkLogs() {
                 onChange={(e) => setBlockers(e.target.value)}
                 rows={3}
                 placeholder="Any obstacles or issues?"
-                className="w-full px-3 py-2 border border-slate-300 dark:border-slate-600 rounded-lg bg-white dark:bg-slate-900 text-text-primary dark:text-white focus:ring-2 focus:ring-primary focus:border-transparent"
+                className="w-full px-4 py-3 border border-slate-300 dark:border-slate-700 rounded-xl bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-500 focus:bg-white dark:focus:bg-slate-900 focus:ring-2 focus:ring-blue-500 focus:outline-none transition-all"
               />
             </div>
 
             <button
               type="submit"
               disabled={submitting}
-              className="bg-primary text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors disabled:opacity-50"
+              className="btn-primary w-full sm:w-auto px-6 py-2.5 disabled:opacity-50 font-bold"
             >
               {submitting ? 'Submitting...' : 'Submit Work Log'}
             </button>

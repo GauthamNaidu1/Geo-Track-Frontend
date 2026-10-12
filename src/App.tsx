@@ -10,6 +10,7 @@ import Login from './pages/Login'
 import NotFound from './pages/NotFound'
 import RoleRedirect from './shared/components/RoleRedirect'
 import { ToastProvider } from './context/ToastContext'
+import { ThemeProvider } from './context/ThemeContext'
 import ErrorBoundary from './shared/components/ErrorBoundary'
 
 // Lazy-loaded layouts (code-split by role)
@@ -209,11 +210,13 @@ function App() {
   return (
     <Provider store={store}>
       <QueryClientProvider client={queryClient}>
-        <ToastProvider>
-          <ErrorBoundary>
-            <AppContent />
-          </ErrorBoundary>
-        </ToastProvider>
+        <ThemeProvider>
+          <ToastProvider>
+            <ErrorBoundary>
+              <AppContent />
+            </ErrorBoundary>
+          </ToastProvider>
+        </ThemeProvider>
       </QueryClientProvider>
     </Provider>
   )

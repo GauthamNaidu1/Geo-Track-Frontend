@@ -59,35 +59,11 @@ export default function RoleSidebar({
       <Link
         key={item.path}
         to={item.path}
-        className={`flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-bold transition-all duration-100 ${
+        className={`flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm transition-all duration-150 ${
           isActive
-            ? 'text-blue-800 dark:text-blue-200'
-            : 'text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white'
+            ? 'bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-bold shadow-sm shadow-blue-500/25'
+            : 'text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800/70 font-semibold'
         }`}
-        style={isActive ? {
-          background: 'linear-gradient(180deg, #dbeafe 0%, #bfdbfe 100%)',
-          border: '1px solid #93c5fd',
-          boxShadow: 'inset 0 1px 3px rgba(0,0,0,0.15), 0 1px 0 rgba(255,255,255,0.8)',
-        } : {
-          background: 'transparent',
-          border: '1px solid transparent',
-        }}
-        onMouseEnter={(e) => {
-          if (!isActive) {
-            const el = e.currentTarget as HTMLElement
-            el.style.background = 'linear-gradient(180deg, #f1f5f9 0%, #e2e8f0 100%)'
-            el.style.border = '1px solid #cbd5e1'
-            el.style.boxShadow = 'inset 0 1px 2px rgba(0,0,0,0.08), 0 1px 0 rgba(255,255,255,0.9)'
-          }
-        }}
-        onMouseLeave={(e) => {
-          if (!isActive) {
-            const el = e.currentTarget as HTMLElement
-            el.style.background = 'transparent'
-            el.style.border = '1px solid transparent'
-            el.style.boxShadow = 'none'
-          }
-        }}
         aria-current={isActive ? 'page' : undefined}
       >
         <span className="text-lg" aria-hidden="true">
@@ -97,7 +73,6 @@ export default function RoleSidebar({
         {item.badge && (
           <span
             className="w-2 h-2 rounded-full bg-red-500 flex-shrink-0"
-            
           />
         )}
       </Link>
@@ -106,23 +81,17 @@ export default function RoleSidebar({
 
   return (
     <aside
-      className={`hidden lg:flex flex-col w-64 h-screen ${
+      className={`hidden lg:flex flex-col w-64 h-screen bg-white/95 dark:bg-[#0c121e] border-r border-slate-200/90 dark:border-slate-800/90 backdrop-blur-md ${
         accentColor ? `border-l-4 ${accentColor}` : ''
       }`}
-      
     >
       {/* Logo / Title */}
-      <div
-        className="flex items-center gap-3 px-5 py-5"
-        
-      >
-        <div
-          className="w-10 h-10 rounded-lg flex items-center justify-center text-white font-extrabold text-sm bg-gradient-to-tr from-blue-600 to-indigo-600 shadow-sm"
-        >
+      <div className="flex items-center gap-3 px-5 py-5 border-b border-slate-100 dark:border-slate-800/60">
+        <div className="w-10 h-10 rounded-xl flex items-center justify-center text-white font-extrabold text-sm bg-gradient-to-tr from-blue-600 to-indigo-600 shadow-md shadow-blue-500/20">
           GT
         </div>
         <div>
-          <h1 className="text-base font-extrabold text-slate-800 dark:text-white">
+          <h1 className="text-base font-extrabold text-slate-900 dark:text-white tracking-tight">
             {title}
           </h1>
           <p className="text-xs text-slate-500 dark:text-slate-400 font-semibold">{subtitle}</p>
@@ -131,16 +100,16 @@ export default function RoleSidebar({
 
       {/* Navigation */}
       <nav
-        className="flex-1 overflow-y-auto px-3 py-4 space-y-1"
+        className="flex-1 overflow-y-auto px-3.5 py-4 space-y-1"
         aria-label="Main navigation"
       >
         {hasSections
           ? Object.entries(groupedItems).map(([section, items]) => (
               <div key={section} className="mb-4">
-                <p className="px-3 mb-2 text-xs font-extrabold uppercase tracking-widest text-slate-500 dark:text-slate-400">
+                <p className="px-3 mb-2 text-[11px] font-extrabold uppercase tracking-wider text-slate-400 dark:text-slate-500">
                   {section}
                 </p>
-                <div className="space-y-0.5">
+                <div className="space-y-1">
                   {items.map(renderNavItem)}
                 </div>
               </div>
@@ -154,18 +123,13 @@ export default function RoleSidebar({
       )}
 
       {/* User info & Logout */}
-      <div
-        className="px-4 py-4"
-        
-      >
+      <div className="px-4 py-4 border-t border-slate-100 dark:border-slate-800/60 bg-slate-50/50 dark:bg-slate-900/30">
         <div className="flex items-center gap-3 mb-3">
-          <div
-            className="w-9 h-9 rounded-full flex items-center justify-center text-white font-extrabold text-sm flex-shrink-0 bg-gradient-to-tr from-blue-600 to-indigo-600 shadow-sm"
-          >
+          <div className="w-9 h-9 rounded-full flex items-center justify-center text-white font-extrabold text-sm flex-shrink-0 bg-gradient-to-tr from-blue-600 to-indigo-600 shadow-sm">
             {user?.name?.charAt(0)?.toUpperCase() || 'U'}
           </div>
           <div className="min-w-0">
-            <p className="text-sm font-extrabold text-slate-800 dark:text-white truncate">
+            <p className="text-sm font-extrabold text-slate-900 dark:text-white truncate">
               {user?.name}
             </p>
             <p className="text-xs text-slate-500 dark:text-slate-400 font-semibold">
@@ -176,18 +140,7 @@ export default function RoleSidebar({
         <button
           type="button"
           onClick={handleLogout}
-          className="w-full flex items-center gap-2 px-3 py-2 text-sm font-bold text-red-700 rounded-lg transition-all duration-100"
-          
-          onMouseDown={(e) => {
-            const el = e.currentTarget
-            el.style.transform = 'translateY(1px)'
-            el.style.boxShadow = 'inset 0 2px 4px rgba(0,0,0,0.2)'
-          }}
-          onMouseUp={(e) => {
-            const el = e.currentTarget
-            el.style.transform = ''
-            el.style.boxShadow = 'inset 0 1px 0 rgba(255,255,255,0.8), 0 2px 4px rgba(0,0,0,0.12)'
-          }}
+          className="w-full flex items-center gap-2 px-3 py-2 text-sm font-bold text-rose-600 dark:text-rose-400 rounded-lg hover:bg-rose-50 dark:hover:bg-rose-950/40 transition-colors"
         >
           <svg
             className="w-4 h-4"

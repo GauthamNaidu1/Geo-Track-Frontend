@@ -12,7 +12,7 @@ export default function ManagerLayout() {
   const closeMobileMenu = useCallback(() => setMobileMenuOpen(false), [])
 
   return (
-    <div className="flex h-screen bg-background dark:bg-slate-900">
+    <div className="flex h-screen bg-slate-50 dark:bg-[#090d16] text-slate-800 dark:text-slate-100">
       <a href="#main-content" className="skip-link">
         Skip to main content
       </a>
